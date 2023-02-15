@@ -9,9 +9,11 @@ int main() {
 //ボード内の確認
 	for(int i = 0; i < 8; ++i) {
 		for(int j = 0; j < 8; ++j) {
-			std::cout << i << "," << j << ": " << enum_string[board.get_board(i, j)+1] << std::endl;
+			std::cout << i << "," << j << ": " << enum_string[board.get_board(i, j)] << std::endl;
 		}
 	}
+
+	board.run();
 
 	return 0;
 }

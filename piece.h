@@ -9,7 +9,7 @@
 #define WHITE 1
 
 enum Pieces_e {
-	EMPTY = -1,
+	EMPTY,
 	KING,
 	QUEEN,
 	ROOK,
@@ -28,43 +28,45 @@ class Piece {
 		Piece(int x, int y, Pieces_e kind, int color);
 		int get_x() {return this->x;}
 		int get_y() {return this->y;}
+		int get_color() {return this->color;}
 		void set_x(int x) {this->x = x;}
 		void set_y(int y) {this->y = y;}
 		void move_to(int x, int y);
+		virtual bool is_move(int x, int y);
 };
 
-class King : Piece {
+class King : public Piece {
 	public:
 		King(int x, int y, Pieces_e kind, int color) : Piece(x, y, kind, color){};
-		bool is_move(int x, int y);
+		bool is_move(int x, int y) override;
 };
 
-class Queen : Piece {
+class Queen : public Piece {
 	public:
 		Queen(int x, int y, Pieces_e kind, int color) : Piece(x, y, kind, color){};
-		bool is_move(int x, int y);
+		bool is_move(int x, int y) override;
 };
 
-class Rook : Piece {
+class Rook : public Piece {
 	public:
 		Rook(int x, int y, Pieces_e kind, int color) : Piece(x, y, kind, color){};
-		bool is_move(int x, int y);
+		bool is_move(int x, int y) override;
 };
 
-class Bishop : Piece {
+class Bishop : public Piece {
 	public:
 		Bishop(int x, int y, Pieces_e kind, int color) : Piece(x, y, kind, color){};
-		bool is_move(int x, int y);
+		bool is_move(int x, int y) override;
 };
 
-class Knight : Piece {
+class Knight : public Piece {
 	public:
 		Knight(int x, int y, Pieces_e kind, int color) : Piece(x, y, kind, color){};
-		bool is_move(int x, int y);
+		bool is_move(int x, int y) override;
 };
 
-class Pawn : Piece {
+class Pawn : public Piece {
 	public:
 		Pawn(int x, int y, Pieces_e kind, int color) : Piece(x, y, kind, color){};
-		bool is_move(int x, int y);
+		bool is_move(int x, int y) override;
 };

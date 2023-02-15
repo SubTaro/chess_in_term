@@ -16,6 +16,9 @@ void Piece::move_to(int x, int y) {
 	set_y(y);
 }
 
+bool Piece::is_move(int x, int y) {
+	return false;
+}
 bool King::is_move(int x, int y) {
 	int present_x = get_x();
 	int present_y = get_y();
